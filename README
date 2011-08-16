@@ -39,6 +39,7 @@ break;
 ¦'12': 'achievements' - A map of achievement data including completion timestamps and criteria information.
 ¦'13': 'progression' - A list of raids and bosses indicating raid progression and completedness. 
 ¦'14': 'pvp' - A list of battleground info and team memberships for a given player. 
+*¦'15': 'quests' - A list of completed quests. 
 
 Guild Api
 •getGuildInfo($rname, $name, $fields)
