@@ -63,6 +63,13 @@ class character extends Resource {
 				break;
 				case '13':		$this->x.= ',progression';
 								#A list of raids and bosses indicating raid progression and completedness.
+				break;
+				case '14':		$this->x.= ',pvp';
+								#A list of battleground vistories and teams.
+				break;
+				default '':
+								$this->x.= '';
+				break;
 			}
 		
 		}
