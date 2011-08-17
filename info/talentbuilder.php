@@ -93,7 +93,7 @@ class talents {
 					// Loop trees in build
 					foreach( $builddata as $treeindex => $tree )
 					{
-						$e['talent'][$treeindex] = array(
+						$e['talent']['trees'][$treeindex] = array(
 							'L_POINTS_SPENT' => $tree['name'].' Points Spent',
 							'NAME' => $tree['name'],
 							'ID' => $treeindex,
@@ -111,7 +111,7 @@ class talents {
 								{
 								if( isset($cell['row']) )
 									{
-									$e['talent'][$treeindex][$cell['column']][$cell['row']]= array(
+									$e['talent']['trees'][$treeindex]['talents'][$cell['column']][$cell['row']]= array(
 										'NAME'      => $cell['name'],
 										'RANK'      => (isset($cell['rank']) ? $cell['rank'] : 0),
 										'MAXRANK'   => (isset($cell['maxrank']) ? $cell['maxrank'] : 0),
@@ -211,7 +211,7 @@ class talents {
 					$returndata[$ti][$c][$r]['maxrank'] = count($rdata['tooltip']);
 					$returndata[$ti][$c][$r]['row'] = $r;
 					$returndata[$ti][$c][$r]['column'] = $c;
-					$returndata[$ti][$c][$r]['image'] = $rdata['icon'] . '.png';
+					$returndata[$ti][$c][$r]['image'] = $rdata['icon'];
 					$rank = '';
 					if (isset($talentArray[$i]) && $talentArray[$i] != 0)
 					{

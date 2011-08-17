@@ -26,6 +26,7 @@ if( !defined('E_STRICT') )
  * @package    WoWRoster
  * @subpackage GDError
  */
+ define('CAN_INI_SET', !preg_match('/ini_set/', ini_get('disable_functions')));
 class GDError
 {
 	// Define variables that store the old error reporting and logging states

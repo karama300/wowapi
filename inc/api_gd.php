@@ -31,8 +31,8 @@ class RosterGD
 	function RosterGD( )
 	{
 		// Initialize the image based error handler
-		require('/inc/api_gderror.php');
-		$this->error =& new GDError();
+		require('api_gderror.php');
+		$this->error = new GDError();
 	}
 
 	function make_image( $width=100 , $height=100 )

@@ -1,11 +1,9 @@
 <?php
 //header( 'Content-type: text/html; charset=utf-8' );
-define('IN_ROSTER', true);
-require('settings.php');
 require('inc/api_gd.php');
-$api_gd =& new RosterGD();
+$api_gd = new RosterGD();
 $img_dir = 'tabard/';
-$api_gd->make_image('216','228');
+//$api_gd->make_image('216','228');
 
 /*
 use urlencode(json_encode($row,JSON_HEX_TAG|JSON_HEX_APOS|JSON_HEX_QUOT|JSON_HEX_AMP))
@@ -19,13 +17,25 @@ $data = isset($_GET['data']) ? $_GET['data'] : false;
 
 if( !$data || $data == '' )
 {
-	trigger_error('No data was recieved', E_USER_ERROR);
+$data['emblem_border'] = '03';
+$data['emblem_icon'] = '25';
+$data['emblem_icon_color'] = 'ffdfa55a';
+$data['emblem_border_color'] = 'fff9cc30';
+$data['emblem_bg_color'] = 'ff860f9a';
+
 }
+else
+{
 
 // Decode and convert data into an array
 $data = urldecode($data);
 $data = stripslashes($data);
 $data = json_decode($data, true);
+}
+
+
+//*
+
 
 // emblem_icon  emblem_icon_color  emblem_border  emblem_border_color  emblem_bg_color 
 $filename1 = $img_dir.'bg_00.png';
@@ -97,5 +107,6 @@ $api_gd->combine_image( $savename2 , 28 , 31 , 0 ,0 , '' , '' );
 $api_gd->combine_image( $savename3 , 34 , 37 , 0 ,0 , '' , '' );
 $api_gd->combine_image( $shadow2 , 15 , 18 , 0 ,0, '' , '' );
 $api_gd->get_image('png');
-	$api_gd->finish();
+$api_gd->finish();
+//*/
 ?>
