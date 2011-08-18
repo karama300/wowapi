@@ -34,7 +34,7 @@ class url {
 			break;
 			case 'team':
 				// /api/wow/arena/{realm}/{size}/{name} (size being 2v2, 3v3 or 5v5)
-				$q = 'api/wow/arena/'.$server.'/'.$field['data'].'/'.$name.'';
+				$q = 'api/wow/arena/'.$field['server'].'/'.$field['size'].'/'.$field['name'].'';
 			break;
 			
 			case 'item':
@@ -67,6 +67,10 @@ class url {
 			
 			case 'quests':
 				$q = '/api/wow/quest/'.$name.'';
+			break;
+			
+			case 'ladder':
+				$q = '/api/wow/pvp/arena/'.$field['server'].'/'.$field['size'].'';
 			break;
 			
 			default:

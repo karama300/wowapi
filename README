@@ -12,6 +12,13 @@ Arena Teams
 ¦Basic information: name, ranking, rating, weekly/season statistics
 ¦Optional fields: members (roster)
 
+Data
+¦Races Info - returns race id's
+¦Quest Info - returns name and reqlvl lvl and catagory or quests
+¦Classes Info - returns class id info
+¦Item Info - returns standard item info name icon socket colors sell type class ect.
+¦Achievement Info - retuens all achievements in a catagorised list including name points and description
+
 Commands
 
 Character Api
@@ -47,7 +54,13 @@ Guild Api
 •getGuildrewards($rname, $name, $fields)
 
 Data Api
-•getRacesInfo()
-•getClassesInfo()
-•getItemInfo($itemID)
-•getQuestInfo($questID)
+•getRacesInfo() 
+•getQuestInfo($id) 
+•getClassesInfo() 
+•getItemInfo($itemID,$gem0=null,$gem1=null,$gem2=null,$enchant=null,$es=false) - gems and encgants info not supported this was for a nother purpose
+•getAchievInfo($achiID)
+
+
+PvP Team
+•getLadderInfo($battlegroup, $size)
+•getTeamInfo($realm, $name, $size)

@@ -13,35 +13,47 @@ class PVP extends Resource {
 	
 	protected $methods_allowed = array(
 		'teams',
+		'ladder',
 	);
 	var $x = '';
 
-	/**
-	 * Get status results for specified realm(s).
-	 *
-	 * @param $char charactername, $realm realm name
-	 * @return mixed
-	 */
-	public function getTeamInfo($realm, $name, $fields) {
+	public function getTeamInfo($realm, $name, $size) {
 
 		if (empty($realm)) {
 			throw new ResourceException('No realms specified.');
 		} elseif (empty($name)) {
-			throw new ResourceException('No char name specified.');
-		} else {
-			if ($fields !='')
-			{
-				$fd ='?fields='.$fields;
-			}
-
-			$data = $this->consume('teams', array(
+			throw new ResourceException('No team name specified.');
+		}
+		
+		$data = $this->consume('teams', array(
 			'data' => $fd,
-			'dataa' => $realm.'/'.$char,
+			'dataa' => $realm.'/'.$name,
 			'server' => $realm,
-			'name' => $char,
+			'name' => $name,
+			'size' => $size,
 			'header'=>"Accept-language: ".$this->region."\r\n"
 			));
 		}
 		return $data;
 	}
+	
+	public function getLadderInfo($battlegroup, $size) {
+
+		if (empty($battlegroup)) {
+			throw new ResourceException('No battlegroup specified.');
+		} elseif (empty($size)) {
+			throw new ResourceException('No team size specified.');
+		}
+
+			$data = $this->consume('ladder', array(
+			'data' => $fd,
+			'dataa' => $battlegroup.'/'.$size,
+			'server' => $battlegroup,
+			'size' => $size,
+			'header'=>"Accept-language: ".$this->region."\r\n"
+			));
+		}
+		return $data;
+	}
+	
 }
