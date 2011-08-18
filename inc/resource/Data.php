@@ -16,6 +16,7 @@ class Data extends Resource {
 		'classes',
 		'item',
 		'achievement',
+		'quests',
 	);
 
 	
@@ -27,6 +28,18 @@ class Data extends Resource {
 			'dataa' => 'races',
 			'server' => '',
 			'name' => '',
+			'header'=>"Accept-language: ".$this->region."\r\n"
+			));
+		return $data;
+	}
+	public function getQuestInfo($id) 
+	{
+		
+			$data = $this->consume('quests', array(
+			'data' => '',
+			'dataa' => $id.'-quests',
+			'server' => '',
+			'name' => $id,
 			'header'=>"Accept-language: ".$this->region."\r\n"
 			));
 		return $data;

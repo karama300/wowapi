@@ -5,7 +5,7 @@ require ('info/wowdb.php');
 		this si an example talent return array...
 
 */
-$mysql = $wowdb->connect('localhost', 'root', 'uraccp', 'wowapi');
+$mysql = $wowdb->connect('localhost', 'root', '', 'wowapi');
 $db = mysql_select_db('wowapi');
 
 if(!$mysql) die("Can´t connect to MySql!<br>".mysql_error()." ".mysql_errno());

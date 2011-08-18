@@ -50,3 +50,4 @@ Data Api
 •getRacesInfo()
 •getClassesInfo()
 •getItemInfo($itemID)
+•getQuestInfo($questID)

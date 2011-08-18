@@ -49,7 +49,7 @@ class url {
 			
 			case 'gachievments':
 				
-				$q = 'api/wow/data/guild/perks';
+				$q = 'api/wow/data/guild/achievements';
 			break;
 			case 'grewards':
 				
@@ -62,9 +62,12 @@ class url {
 			break;
 
 			case 'achievement':
-				$q = 'api/wow/data/achievement/'.$name.'';
+				$q = 'api/wow/data/character/achievements';
 			break;
 			
+			case 'quests':
+				$q = '/api/wow/quest/'.$name.'';
+			break;
 			
 			default:
 			break;
