@@ -3,6 +3,7 @@ require_once 'resource/Realm.php';
 require_once 'resource/Char.php';
 require_once 'resource/Guild.php';
 require_once 'resource/Data.php';
+require_once 'resource/Team.php';
 //require_once 'tools/cache.php';
 
 class WowAPI {
@@ -31,6 +32,7 @@ class WowAPI {
 		$this->Char = new character(strtoupper($region));
 		$this->Guild = new guild(strtoupper($region));
 		$this->Data = new Data(strtoupper($region));
+		$this->PvP = new PVP(strtoupper($region));
 	}
 	
 	

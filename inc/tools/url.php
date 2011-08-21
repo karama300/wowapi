@@ -70,7 +70,7 @@ class url {
 			break;
 			
 			case 'ladder':
-				$q = '/api/wow/pvp/arena/'.$field['server'].'/'.$field['size'].'';
+				$q = '/api/wow/pvp/arena/'.$field['server'].'/'.$field['size'].$fields['data'];
 			break;
 			
 			default:

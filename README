@@ -8,9 +8,10 @@ Guild
 ¦Basic information: name, level, achievement points
 ¦Optional fields: members (roster), achievements
 
-Arena Teams
-¦Basic information: name, ranking, rating, weekly/season statistics
-¦Optional fields: members (roster)
+PvP
+¦PvP Teams Basic information: name, ranking, rating, weekly/season statistics
+¦--Optional fields: members (roster)
+¦Battlegroup info can be returned for ladder tracking
 
 Data
 ¦Races Info - returns race id's
@@ -49,18 +50,21 @@ break;
 *¦'15': 'quests' - A list of completed quests. 
 
 Guild Api
+$api->Guild->
 •getGuildInfo($rname, $name, $fields)
 •getGuildperks($rname, $name, $fields)
 •getGuildrewards($rname, $name, $fields)
 
 Data Api
+$api->Data->
 •getRacesInfo() 
 •getQuestInfo($id) 
 •getClassesInfo() 
-•getItemInfo($itemID,$gem0=null,$gem1=null,$gem2=null,$enchant=null,$es=false) - gems and encgants info not supported this was for a nother purpose
+•getItemInfo($itemID,$gem0=null,$gem1=null,$gem2=null,$enchant=null,$es=false) - gems and enchants info not supported this was for a nother purpose or if exposed later
 •getAchievInfo($achiID)
 
 
 PvP Team
+$api->PvP->
 •getLadderInfo($battlegroup, $size)
 •getTeamInfo($realm, $name, $size)

@@ -37,7 +37,7 @@ class PVP extends Resource {
 		return $data;
 	}
 	
-	public function getLadderInfo($battlegroup, $size) {
+	public function getLadderInfo($battlegroup, $size,$limit=null) {
 
 		if (empty($battlegroup)) {
 			throw new ResourceException('No battlegroup specified.');
@@ -46,7 +46,7 @@ class PVP extends Resource {
 		}
 
 			$data = $this->consume('ladder', array(
-			'data' => $fd,
+			'data' => '?size='.$limit,
 			'dataa' => $battlegroup.'/'.$size,
 			'server' => $battlegroup,
 			'size' => $size,
