@@ -58,7 +58,7 @@ class Guild extends Resource {
 			'dataa' => $name.'@'.$rname.'-perks',
 			'server' => $rname,
 			'name' => $name,
-			'header'=>"Accept-language: ".$this->region."\r\n"
+			'header'=>"Accept-language: ".$this->region."\n\r"
 			));
 		}
 		return $data;

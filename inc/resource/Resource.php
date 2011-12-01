@@ -17,7 +17,6 @@ abstract class Resource {
 	 */
 	var $query=array();
 	var $errors=array();
-	const API_URI = 'http://%s.battle.net/';
 
 	/**
 	 * @var string Serve region(`us` or `eu`)
@@ -42,7 +41,7 @@ abstract class Resource {
 	 * @throws ResourceException If no methods are allowed
 	 * @param string $region Server region(`us` or `eu`)
 	 */
-	public function __construct($region='us') 
+	public function __construct($region) 
 	{
 		if (empty($this->methods_allowed)) 
 		{
@@ -108,9 +107,9 @@ abstract class Resource {
 			throw new ResourceException('Method not allowed.', 405);
 		}
 		// new prity url builder ... much better then befor...
-		$ui = sprintf(self::API_URI, $this->region);
+		$ui = API_URI;
 
-			$url = $this->url->BuildUrl($ui,$method,$params['server'],$params['name'],$params);
+			$url = $this->url->BuildUrl($ui,$method,$params['server'],$params['name'],$params,$this->region);
 
 			$data = $this->Curl->makeRequest($url,null, $params,$url,$method);
 			if ($this->Curl->errno !== CURLE_OK) 

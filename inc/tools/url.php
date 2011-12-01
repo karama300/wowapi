@@ -12,11 +12,12 @@ class url {
 	* $fields - extra data used for additional info multiple realm names
 	*			character event calls and team size
 	**********************************************/
-	public function BuildUrl($ui,$class,$server,$name,$fields)
+	public function BuildUrl($ui,$class,$server,$name,$fields,$loc)
 	{	
 	
 		$name = str_replace('+' , '%20' , urlencode($name));
 		$server = str_replace('+' , '%20' , urlencode($server));
+		$local = 'locale='.$loc;
 
 		switch ($class)
 		{
@@ -76,11 +77,20 @@ class url {
 			default:
 			break;
 		}
-		if ($debug)
+		if (preg_match('/\?/', $q))
 		{
-			echo $ui.$q.'<br>';
+			$l = '&'.$local;
 		}
-		return $ui.$q;
+		else
+		{
+			$l = '?'.$local;
+		}
+
+		if (API_DEBUG)
+		{
+			echo $ui.$q.$l.'<br>';
+		}
+		return $ui.$q.$l;
 	}
 
 

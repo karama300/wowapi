@@ -1,5 +1,22 @@
-The roster to wow api is a set of scripts that will use the new blizzard feeds for character and guild information from there servers for use with roster and its addons
+WoW-API
+Is a class for Php that uses the new API from blizzard to import data to your webhost and store it to create any number of things wow related
+Additions to this Script include:
+	PhP GD - Tabard creater
+	Its own mysql Interface (life is easy'er that way)
+	Cache System 50/50 it works i stoped using it when i went database
+	Item Tooltip Gen yes you read wright i made a script ( well modded an old script) to make wow like item tooltips for storage
+		-> *in the future the addition of adding enchants and gems into items will be added
+	Talents a test file and the myswl info you will need to create talent trees along with spells and ranks and icons +tooltips lolz
+	*Localization yes im adding a locale class for item and talent mods since the apu can pull any langrage why not support multiple
+	
+	If you have any comments or questions email me at ulminia (at) gmail dot com
+	
+	Enjoy
+	
+	Now for some techinical info
+	
 Features include
+
 Character info 
 ¦Basic information: name, level, class, race, gender, faction, guild, achievement points
 ¦Optional fields: equipped items, stats, reputation, primary and secondary skills, achievements/statistics, talents, titles, collected mounts and companions, quests, profession recipes, Hunter pets, PvP information
@@ -68,3 +85,5 @@ PvP Team
 $api->PvP->
 •getLadderInfo($battlegroup, $size)
 •getTeamInfo($realm, $name, $size)
+
+*feature may or mat not be active check latest build info

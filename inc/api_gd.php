@@ -340,13 +340,13 @@ class RosterGD
 	{
 		// Set our secondary font backup
 		// If it works on Star Trek, it can work here!
-		$_2ndary_backup = ROSTER_BASE . 'fonts'. DIR_SEP . 'VERANDA.TTF';
+		$_2ndary_backup = 'fonts/VERANDA.TTF';
 
 		// We should never have a blank font, but oh well
 		if( $font != '' )
 		{
 			// We look in Roster's font dir
-			$default_font = ROSTER_BASE . 'fonts'. DIR_SEP . $font;
+			$default_font = 'fonts/' . $font;
 
 			// Check to see if SigGen can see the font
 			if( file_exists($default_font) )
