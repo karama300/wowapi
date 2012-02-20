@@ -17,6 +17,8 @@ class Data extends Resource {
 		'item',
 		'achievement',
 		'quests',
+		'auction',
+		'recipe',
 	);
 
 	
@@ -97,4 +99,43 @@ class Data extends Resource {
 		}
 		return $data;
 	}
+	
+	public function GetAuction($realm,$compress=false)
+	{
+	
+		if (empty($realm)) 
+		{
+			throw new ResourceException('No realms specified.');
+		}
+		else 
+		{
+			$data = $this->consume('auction', array(
+			'server' => $realm,
+			'type' => 'GET',
+			'header'=>"Accept-language: ".$this->region."\r\n.'".($compress ? "Accept-Encoding: gzip" : "Content-Type: text/html; charset=UTF-8").""
+			));
+		}
+		return $data;
+		
+	}
+	
+	public function GetRecipe($recipe)
+	{
+	
+		if (empty($realm)) 
+		{
+			throw new ResourceException('No realms specified.');
+		}
+		else 
+		{
+			$data = $this->consume('recipe', array(
+			'name' => $recipe,
+			'type' => 'GET',
+			'header'=>"Accept-language: ".$this->region."\r\n.'".($compress ? "Accept-Encoding: gzip" : "Content-Type: text/html; charset=UTF-8").""
+			));
+		}
+		return $data;
+		
+	}
+	
 }

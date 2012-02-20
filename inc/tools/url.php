@@ -74,6 +74,14 @@ class url {
 				$q = '/api/wow/pvp/arena/'.$field['server'].'/'.$field['size'].$fields['data'];
 			break;
 			
+			case 'auction':
+				$q = '/api/wow/auction/data/'.$field['server'];
+			break;
+			
+			case 'recipe':
+				$q = '/api/wow/recipe/'.$field['name'];
+			break;
+			
 			default:
 			break;
 		}

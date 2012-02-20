@@ -109,30 +109,29 @@ abstract class Resource {
 		// new prity url builder ... much better then befor...
 		$ui = API_URI;
 
-			$url = $this->url->BuildUrl($ui,$method,$params['server'],$params['name'],$params,$this->region);
+		$url = $this->url->BuildUrl($ui,$method,$params['server'],$params['name'],$params,$this->region);
 
-			$data = $this->Curl->makeRequest($url,null, $params,$url,$method);
-			if ($this->Curl->errno !== CURLE_OK) 
-			{
-				throw new ResourceException($this->Curl->error, $this->Curl->errno);
-			}
-			//Battle.net returned a HTTP error code
-			$x = json_decode($data['response'], true);
-			if (isset($data['response_headers']) && $data['response_headers']['http_code'] != '200') 
-			{
-				$msg = $this->transhttpciode($data['response_headers']['http_code']);
-				$this->seterrors(array('type'=>$method,'msg'=>''.$msg.'<br>'.$url.''));
-			}
+		$data = $this->Curl->makeRequest($url,$params['type'], $params,$url,$method);
+		if ($this->Curl->errno !== CURLE_OK) 
+		{
+			throw new ResourceException($this->Curl->error, $this->Curl->errno);
+		}
+		//Battle.net returned a HTTP error code
+		$x = json_decode($data['response'], true);
+		if (isset($data['response_headers']) && $data['response_headers']['http_code'] != '200') 
+		{
+			$msg = $this->transhttpciode($data['response_headers']['http_code']);
+			$this->seterrors(array('type'=>$method,'msg'=>''.$msg.'<br>'.$url.''));
+		}
 
-			if (isset($x['reason']))
-			{
-				$this->seterrors(array('type'=>$method,'msg'=>$x['reason']));
-				$this->query['result'] = false; // over ride cache and set to false no data or no url no file lol
-			}
+		if (isset($x['reason']))
+		{
+			$this->seterrors(array('type'=>$method,'msg'=>$x['reason']));
+			$this->query['result'] = false; // over ride cache and set to false no data or no url no file lol
+		}
 
-			$data = json_decode($data['response'], true);
-			$info = $data;
-
+		$data = json_decode($data['response'], true);
+		$info = $data;
 
 		return $info;
 	}
